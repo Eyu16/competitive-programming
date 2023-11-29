@@ -2,7 +2,11 @@
  * @param {number[]} nums
  */
 var NumArray = function(nums) {
-    this.nums = nums;
+    this.cumulativeSum = [0];
+    
+    for (let i = 0; i < nums.length; i++) {
+        this.cumulativeSum[i + 1] = this.cumulativeSum[i] + nums[i];
+    }
 };
 
 /** 
@@ -11,11 +15,7 @@ var NumArray = function(nums) {
  * @return {number}
  */
 NumArray.prototype.sumRange = function(left, right) {
-    this.sum = 0;
-    for(let i = left;  i <= right ; i++){
-        this.sum += this.nums[i];
-    }
-  return this.sum;
+    return this.cumulativeSum[right + 1] - this.cumulativeSum[left];
 };
 
 /** 

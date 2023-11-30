@@ -1,9 +1,8 @@
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
 var sortedSquares = function(nums) {
-  nums.forEach((num, index, array) => {
-    array[index] = num * num;
-  });
-
-  nums.sort((a, b) => a - b);
-
-  return nums;
+    return nums.map(a=>a*a).sort((a,b)=>a-b);
+    // return nums.sort((a,b)=>(a*a)-(b*b));
 };

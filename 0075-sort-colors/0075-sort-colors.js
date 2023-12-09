@@ -100,21 +100,37 @@ var sortColors = function(nums) {
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var sortColors = function(nums) {
-    let low = 0;         // Pointer for 0s
-    let high = nums.length - 1;  // Pointer for 2s
-    let i = 0;           // Current position
+//     let low = 0;         // Pointer for 0s
+//     let high = nums.length - 1;  // Pointer for 2s
+//     let i = 0;           // Current position
 
-    while (i <= high) {
-        if (nums[i] === 0) {
-            swap(nums, i, low);
-            i++;
-            low++;
-        } else if (nums[i] === 2) {
-            swap(nums, i, high);
-            high--;
-        } else {
-            i++;
+//     while (i <= high) {
+//         if (nums[i] === 0) {
+//             swap(nums, i, low);
+//             i++;
+//             low++;
+//         } else if (nums[i] === 2) {
+//             swap(nums, i, high);
+//             high--;
+//         } else {
+//             i++;
+//         }
+//     }
+    let m = 0;
+    let j = 0;
+    let k = nums.length - 1;
+    while(m <= k){
+        if(nums[m] == 2){
+            swap(nums,m,k);
+            k--;
         }
+           else if(nums[m] == 1)
+               m++;
+            else{
+                swap(nums,j,m)
+                j++;
+                m++;
+            }
     }
 };
 

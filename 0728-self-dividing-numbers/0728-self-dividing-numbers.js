@@ -62,3 +62,22 @@ var selfDividingNumbers = function(left, right) {
     
 //     return arr;
 // };
+var selfDividingNumbers = function (left, right) {
+  let arr = [];
+  for(let i = left ; i<=right;i++){
+    if(i%10 == 0) continue;
+    let num = i;
+    let isSelefD = true;
+    while(num>0){
+      let digit =  num%10;
+      if(i%digit !== 0){
+        isSelefD = false;
+        break;
+      }
+      num = Math.floor(num/10);
+    }
+if(isSelefD) 
+arr.push(i);
+  }
+return arr;
+};

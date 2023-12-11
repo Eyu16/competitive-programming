@@ -16,7 +16,6 @@ var twoSum = function(numbers, target) {
         else{
             right--;
         }
-  
     }
     return -1;
 };

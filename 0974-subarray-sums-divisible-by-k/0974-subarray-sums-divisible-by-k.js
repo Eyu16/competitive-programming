@@ -1,22 +1,22 @@
 var subarraysDivByK = function(nums, k) {
     let count = 0;
-    let sum = 0;
+    let remainder = 0;
     let remainderMap = new Map();
     remainderMap.set(0, 1);
 
     for (let i = 0; i < nums.length; i++) {
-        sum = (sum + nums[i]) % k;
-        if (sum < 0) {
+      remainder = (remainder + nums[i]) % k;
+        if (remainder < 0) {
             // Handle negative remainders
-            sum += k;
+            remainder += k;
         }
-        if (remainderMap.has(sum)) {
-            count += remainderMap.get(sum);
-            remainderMap.set(sum, remainderMap.get(sum) + 1);
+        if (remainderMap.has(remainder)) {
+            count += remainderMap.get(remainder);
+            remainderMap.set(remainder, remainderMap.get(remainder) + 1);
         }
 
        else {
-            remainderMap.set(sum, 1);
+            remainderMap.set(remainder, 1);
         }
     }
 

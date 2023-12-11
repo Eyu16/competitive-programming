@@ -3,7 +3,7 @@
  * @return {number}
  */
 var maxProfit = function(prices) {
-    let minPrice = prices[0];
+    // let minPrice = prices[0];
     let maxProfit = 0;
     let left = 0;
     let right = 1;

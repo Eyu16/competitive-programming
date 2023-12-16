@@ -4,12 +4,27 @@
  * @return {boolean}
  */
 var isAnagram = function(s, t) {
-   let output = true;
-  s = s.split("").sort();
-  t = t.split("").sort();
-  if (t.length !== s.length) return false;
-  s.forEach((_, i, s) => {
-    if (t[i] !== s[i]) output = false;
-  });
-  return output;
+    if( s.length !== t.length) return false;
+    let sMap = new Map();
+    let tMap = new Map();
+    for(let i = 0 ; i < s.length ; i++){
+        if (sMap.has(s[i])){
+            sMap.set(s[i],sMap.get(s[i])+1);
+        }
+        else{
+            sMap.set(s[i],1);
+        }
+        
+        if (tMap.has(t[i])){
+            tMap.set(t[i],tMap.get(t[i])+1);
+        }
+        else{
+            tMap.set(t[i],1);
+        }
+    }
+    for(let i of sMap.keys()){
+        if(sMap.get(i) !== tMap.get(i))
+            return false;
+    }
+  return true;
 };

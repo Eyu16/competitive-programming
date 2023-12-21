@@ -3,6 +3,24 @@
  * @return {number[]}
  */
 var sortedSquares = function(nums) {
-    return nums.map(a=>a*a).sort((a,b)=>a-b);
-    // return nums.sort((a,b)=>(a*a)-(b*b));
+    let i = 0;
+    let sortedSquared = []
+    
+    let j= nums.length - 1
+    let x = j
+    while(i <= j){
+        if(Math.abs(nums[i])>Math.abs(nums[j])){
+        sortedSquared[x] = nums[i] * nums[i];
+            i++;
+            x--;
+        
+        }
+        else{
+            sortedSquared[x] = nums[j] * nums[j];
+            j--;
+            x--;
+          
+        }
+    }
+    return sortedSquared;
 };

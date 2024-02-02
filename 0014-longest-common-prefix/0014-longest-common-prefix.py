@@ -10,4 +10,6 @@ class Solution:
                 break
         return result
             
+#time complexity is o(nlogn) because of the built in sort function
+#the space complexity is o(1) because if doesnot depend on size of input
         

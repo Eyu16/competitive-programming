@@ -1,12 +1,8 @@
 class Solution:
     def firstUniqChar(self, s: str) -> int:
-        frquency_count = Counter(s)
-        map_index = defaultdict(int)
+        frquency_count = Counter(s)            
         for i in range(len(s)):
-            map_index[s[i]] = i
-            
-        for char in s:
-            if frquency_count[char] == 1:
-                return map_index[char]
+            if frquency_count[s[i]] == 1:
+                return i
         return -1
         

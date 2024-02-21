@@ -1,13 +1,21 @@
 class Solution:
     def minimumRightShifts(self, nums: List[int]) -> int:
-        sorted_nums = sorted(nums)
-        if sorted_nums == nums:
-            return 0
-        dec = []
+        start_index = 0
+        count = 0
         for i in range(len(nums) - 1):
+            if count > 1:
+                return -1
             if nums[i + 1] < nums[i]:
-                dec = nums[i + 1:]
-                if dec[-1] < nums[0] and sorted(dec) == dec:
-                    return len(dec)
+                start_index = i + 1
+                count += 1
+        else:
+            if count == 0:
+                return 0
+            if count == 2:
+                return -1
+            else:
+                if nums[0] > nums[-1]:
+                    return len(nums) - start_index
                 else:
                     return -1
+

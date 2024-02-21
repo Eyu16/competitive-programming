@@ -6,7 +6,6 @@ class Solution:
         i = 0
         while i < len(s):
             if s[i] in index_map:
-                pass
                 l = max(i - index_map[s[i]], l, c)
                 c = 1
                 i = index_map[s[i]] + 1

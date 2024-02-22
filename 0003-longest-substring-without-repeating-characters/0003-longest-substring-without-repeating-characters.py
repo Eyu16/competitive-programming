@@ -1,19 +1,17 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
+        index_map = {}
+        l = 0
+        c = 0
         i = 0
-        subStreams = list()
         while i < len(s):
-            subString = s[i:]
-            subStream = ''
-            for k in subString:
-                if k not in subStream:
-                    subStream += k
-                else:
-                    break
-                subStreams.append(subStream)
+            if s[i] in index_map:
+                l = max(i - index_map[s[i]], l, c)
+                c = 1
+                i = index_map[s[i]] + 1
+                index_map = {s[i]: i}
+            else:
+                index_map[s[i]] = i
+                c += 1
             i += 1
-        maximum = 0
-        for word in subStreams:
-            if len(word) > maximum:
-                maximum = len(word)
-        return maximum
+        return max(l, c)

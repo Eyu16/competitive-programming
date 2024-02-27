@@ -1,6 +1,5 @@
 class Solution:
-    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
-        
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:    
         count = 0
         result = []
         for i in range(0, len(nums)):

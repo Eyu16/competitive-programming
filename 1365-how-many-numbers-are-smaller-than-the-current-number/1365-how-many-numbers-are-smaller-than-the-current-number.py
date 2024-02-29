@@ -6,7 +6,7 @@ class Solution:
             index_map[sorted_num[i]].append(i)
 
         res = []
-        for num in nums:
+        for num in nums:             
             res.append(index_map[num][0] - 0)
         return res
         

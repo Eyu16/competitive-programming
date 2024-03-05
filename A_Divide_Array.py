@@ -45,5 +45,3 @@ print(len(positives), " ".join(list(map(str,sorted(positives)))))
 print(len(zeros), " ".join(list(map(str,sorted(zeros)))))
 
   
-  
-  
